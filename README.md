@@ -29,7 +29,7 @@ Brief explanations for the features:
 
 ![Train Set](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train.png)
 
-![Train Set Adjusted](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train_(Adjusted).png
+![Train Set (Adjusted)](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train_(Adjusted).png)
 
 ![Testset](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Test.png)
 
