@@ -27,7 +27,7 @@ Brief explanations for the features:
 
 ## Visualisation
 
-![Test Data][https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Test.png]
+![Test Data](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Test.png)
 
 
 ### Training set
