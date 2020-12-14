@@ -27,19 +27,24 @@ Brief explanations for the features:
 
 ## Visualisation
 
+First, let's take look at the training dataset. One of the interesting thing is that in 2014, there is a great decline at the closing price. The actual day that happened is 27 March 2014. The reason of that is, a stock split took place with a rate of 2002/1000 at that day. It has resulted in that the closing price has decreased by half. Actually there is another split in 27 April 2015 but the rate was 10027455/10000000, and the results are not that obvious to visually inspect. 
+
 ![Train Set](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train.png)
 
-![Train Set (Adjusted)](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train_(Adjusted).png)
+The effects of the splits can be eliminated by scaling the closing prices to the effect of last decision. That is, the closing prices before 27 March 2014, can be divided by 2.002 and the closing prices before 27 April 2015 can be divided by 1.0027455. Doing the split adjustments accordingly, the resulting plot is like:
+
+![Train Set (Adjusted)](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Train_2014-03-27_(2.002)_2015-04-27_(1.0027455).png)
+
+Lastly in the test dataset, all aspect can be investigated clearly.
 
 ![Testset](https://github.com/ugurcancakal/stockPrediction/blob/main/figure/Google_Stock_Price_Test.png)
 
+Further information about stock split:
 
-### Training set
+*What is a Stock Split* *https://www.investopedia.com/ask/answers/what-stock-split-why-do-stocks-split/#:~:text=A%20stock%20split%20is%20a,share%20held%20by%20a%20shareholder.*
 
-### Test set
+*Google Stock Split History:* *https://www.splithistory.com/goog/#:~:text=The%20first%20split%20for%20GOOG,shareholder%20now%20owned%202002%20shares.*
 
-## Data Preprocessing
-
-## Building the Network
+## The Network
 
 ## Results
