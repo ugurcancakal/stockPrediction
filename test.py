@@ -11,6 +11,7 @@ import visualisation as vis
 import dataset as sd
 import regressor as reg
 import predictor as pred
+import utility as u
 
 from torch.utils.data import DataLoader
 import torch.nn as nn
@@ -22,9 +23,17 @@ root_data = os.path.join(os.getcwd(), 'data')
 root_figure = os.path.join(os.getcwd(), 'figure')
 
 class TestStockPrice(unittest.TestCase):
+
 	def test1(self):
-		vis.plt_config(transparent=False)
+		file = 'Google_Stock_Price_Train.csv'
+		file = u.adjust_split(root_data, file, rate=2.002, date='2014-03-27')
+		u.adjust_split(root_data, file, rate=1.0027455, date='2015-04-27')
+
+	def test2(self):
+		vis.plt_config(figsize=(16,9),transparent=False)
 		vis.visualise_data(root_data)
+
+	
 
 	# def test_dataset(self):
 	# 	'''
