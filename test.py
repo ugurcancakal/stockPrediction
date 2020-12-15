@@ -10,8 +10,8 @@ import unittest
 import visualisation as vis 
 import dataset as sd
 import regressor as reg
-import predictor as pred
-import utility as u
+import prediction as pred
+import utils as u
 
 from torch.utils.data import DataLoader
 import torch.nn as nn
@@ -24,14 +24,14 @@ root_figure = os.path.join(os.getcwd(), 'figure')
 
 class TestStockPrice(unittest.TestCase):
 
-	def test1(self):
-		file = 'Google_Stock_Price_Train.csv'
-		file = u.adjust_split(root_data, file, rate=2.002, date='2014-03-27')
-		u.adjust_split(root_data, file, rate=1.0027455, date='2015-04-27')
+	# def test1(self):
+	# 	file = 'Google_Stock_Price_Train.csv'
+	# 	file = u.adjust_split(root_data, file, rate=2.002, date='2014-03-27')
+	# 	file = u.adjust_split(root_data, file, rate=1.0027455, date='2015-04-27')
 
-	def test2(self):
-		vis.plt_config(figsize=(16,9),transparent=False)
-		vis.visualise_data(root_data)
+	# def test2(self):
+	# 	vis.plt_config(figsize=(16,9),transparent=False)
+	# 	vis.visualise_data(root_data)
 
 	
 
@@ -39,10 +39,10 @@ class TestStockPrice(unittest.TestCase):
 	# 	'''
 	# 	Hardcode the 0th and the last
 	# 	'''
-	# 	filepath = 'Google_Stock_Price_Train.csv'
-	# 	timestep = 60
-	# 	dataset = sd.StockPrice(filepath, timestep = timestep, normalize=False)
-	# 	self.assertEqual(len(dataset),1258-timestep)
+	# 	filepath = os.path.join(root_data,'Google_Stock_Price_Train_2014-03-27_(2.002)_2015-04-27_(1.0027455).csv')
+	# 	timesteps = 60
+	# 	dataset = sd.StockPrice(filepath, target=None, timesteps = timesteps, normalize=True)
+	# 	self.assertEqual(len(dataset),1258-timesteps)
 	# 	print(dataset[0])
 
 	# def test_network(self):
@@ -76,16 +76,16 @@ class TestStockPrice(unittest.TestCase):
 	# 			break
 
 
-	# def test(self):
-	# 	train_path = 'Google_Stock_Price_Train.csv'
-	# 	test_path = 'Google_Stock_Price_Test.csv'
+	# def test10(self):
+	# 	train_path = os.path.join(root_data,'Google_Stock_Price_Train_2014-03-27_(2.002)_2015-04-27_(1.0027455).csv')
+	# 	test_path = os.path.join(root_data,'Google_Stock_Price_Test.csv')
 	# 	batch = 1
 	# 	indicators = 1
-	# 	timestep = 60
+	# 	timesteps = 60
 	# 	epochs = 2
 
-	# 	train_set = sd.StockPrice(train_path, timestep = timestep)
-	# 	test_set = sd.StockPrice(test_path, timestep = 1)
+	# 	train_set = sd.StockPrice(train_path, timesteps = timesteps)
+	# 	test_set = sd.StockPrice(test_path, timesteps = 1)
 
 	# 	train_dl = DataLoader(dataset=train_set,
 	# 												batch_size=batch,
@@ -95,7 +95,7 @@ class TestStockPrice(unittest.TestCase):
 	# 												batch_size=batch,
 	# 												shuffle=True)
 
-	# 	model = reg.LSTM(indicators,timestep)
+	# 	model = reg.LSTM(indicators,timesteps)
 	# 	loss_function = nn.MSELoss()
 
 	# 	if torch.cuda.device_count() > 1:
@@ -111,7 +111,26 @@ class TestStockPrice(unittest.TestCase):
 	# 	start = time.time()
 	# 	print("Training for %d epochs..." % epochs)
 		
-	# 	pred.train(epochs,model,loss_function,train_dl,valid_dl,lr=0.001,metric=pred.accuracy)
+	# 	pred.train(epochs,model,loss_function,train_dl,valid_dl,lr=0.001)
 
+	def test11(self):
+		features = ['Open']
+		timesteps = 60
+		model = reg.LSTM(len(features),timesteps)
+
+		exp1 = {'root_dir' : root_data,
+						'train_path' : 'Google_Stock_Price_Train_2014-03-27_(2.002)_2015-04-27_(1.0027455).csv',
+						'test_path' : 'Google_Stock_Price_Test.csv',
+						'batch' : 1,
+						'features' : features,
+						'timesteps' : timesteps,
+						'epochs' : 4,
+						'model' : model,
+						'loss_function' : nn.MSELoss, 
+						'opt_fn' : torch.optim.Adam, 
+						'lr' : 0.001, 
+						'metric' : None }
+
+		pred.experiment(**exp1)
 if __name__=='__main__':
 	unittest.main()
