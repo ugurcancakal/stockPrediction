@@ -11,7 +11,6 @@ import matplotlib as mpl
 from matplotlib import rc
 import matplotlib.pyplot as plt
 import os
-from datetime import date
 
 def plt_config(figsize=(16,9), dpi=300, linewidth=2, fontsize = 16, transparent=True):
 	'''
