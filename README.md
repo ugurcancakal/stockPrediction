@@ -41,9 +41,13 @@ Lastly in the test dataset, all aspect can be investigated clearly.
 
 Further information about stock split:
 
-*What is a Stock Split* *https://www.investopedia.com/ask/answers/what-stock-split-why-do-stocks-split/#:~:text=A%20stock%20split%20is%20a,share%20held%20by%20a%20shareholder.*
+*What is a Stock Split:* 
 
-*Google Stock Split History:* *https://www.splithistory.com/goog/#:~:text=The%20first%20split%20for%20GOOG,shareholder%20now%20owned%202002%20shares.*
+*https://www.investopedia.com/ask/answers/what-stock-split-why-do-stocks-split/#:~:text=A%20stock%20split%20is%20a,share%20held%20by%20a%20shareholder.*
+
+*Google Stock Split History:* 
+
+*https://www.splithistory.com/goog/#:~:text=The%20first%20split%20for%20GOOG,shareholder%20now%20owned%202002%20shares.*
 
 ## The Network
 
